@@ -86,5 +86,8 @@ make play
 look at the included Makefile (as you should every Makefile for that matter before you `sudo make anything`)
 it merely uses the install command to copy the scripts to `/usr/local/bin` with mode 0755
 
-## website 
-http://joshuacox.github.io/bomsaway
+## bomsawaywebsite 
+[joshuacox.github.io/bomsaway](http://joshuacox.github.io/bomsaway)
+
+### ohter related errata
+[joshuacox.github.io](http://joshuacox.github.io/)
