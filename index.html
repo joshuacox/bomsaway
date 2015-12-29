@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Bomsaway by joshuacox</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Bomsaway</h1>
+        <h2>Make BOMs go away because they are ugly and ruining my jekyll site</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/joshuacox/bomsaway/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/joshuacox/bomsaway/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/joshuacox/bomsaway" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="bomsaway" class="anchor" href="#bomsaway" aria-hidden="true"><span class="octicon octicon-link"></span></a>bomsaway</h1>
+
+<h6>
+<a id="make-boms-go-away-because-they-are-ugly-and-ruining-my-jekyll-site" class="anchor" href="#make-boms-go-away-because-they-are-ugly-and-ruining-my-jekyll-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>Make BOMs go away because they are ugly and ruining my jekyll site</h6>
+
+<p>This is a utility to remove BOMs, there are other methods as well, perhaps the simplest using sed to remove all BOMs from some markdown files in a directory</p>
+
+<pre><code>sed -i '1 s/\xEF\xBB\xBF//' *.md
+</code></pre>
+
+<p>or in VIM you can set nobomb:</p>
+
+<pre><code>:set nobomb 
+</code></pre>
+
+<p>but I ran across this shellscript and immediately wanted it installed on all my machines, so why not give it a repo and a quick website so this thing can be readily available. </p>
+
+<p>Originally seen <a href="http://thegreyblog.blogspot.de/2010/09/shell-script-to-find-and-remove-bom.html">here</a></p>
+
+<p><a href="https://plus.google.com/+EnricoMariaCrisostomo?prsrc=5">Enrico Maria Crisostomo</a> named it bom-remove, but that's a little dry for my taste.  How about something like BOMBS AWAY!  Remove caps, the B and space and you got bomsaway</p>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>Assuming the script is in your $PATH and it's called bomsaway, you can "clean" a bunch of files invoking it this way:</p>
+
+<pre><code>$ bomsaway file-to-clean ...
+</code></pre>
+
+<p>If you want to clean the files in an entire directory, you can use the following syntax:</p>
+
+<pre><code>$ bomsaway -r dir-to-clean ...
+</code></pre>
+
+<p>If your sed installation is not in your $PATH or you have to use an alternate version, you can invoke the script with the following syntax:</p>
+
+<pre><code>$ bomsaway -s path/to/sed file-to-clean ...
+</code></pre>
+
+<p>If you want to clean a directory in which other file systems might be mounted, you can use the -x option so that the script does not descend them:</p>
+
+<pre><code>$ bomsaway -xr dir-to-clean ...
+</code></pre>
+
+<h1>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<h5>
+<a id="oneliner-its-how-i-install-myself-so-im-leaving-this-up-top" class="anchor" href="#oneliner-its-how-i-install-myself-so-im-leaving-this-up-top" aria-hidden="true"><span class="octicon octicon-link"></span></a>oneliner (it’s how I install myself so I’m leaving this up top)</h5>
+
+<pre><code>curl https://raw.githubusercontent.com/joshuacox/bomsaway/master/bootstrapbomsaway.sh|bash
+</code></pre>
+
+<h5>
+<a id="manual-install" class="anchor" href="#manual-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>manual install</h5>
+
+<p>just copy the wanted files somewhere into your path</p>
+
+<p>alternatively, if you want to install them all to <code>/usr/local/bin/</code>, then</p>
+
+<pre><code>sudo make install
+</code></pre>
+
+<h5>
+<a id="ansible-install" class="anchor" href="#ansible-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ansible install</h5>
+
+<p>or you can add hosts to a bomsaway list in your ansible hosts file like so</p>
+
+<pre><code>examplehost1 ansible_ssh_port=2222 ansible_ssh_host=1.2.3.4 ansible_ssh_user=root
+examplehost2 ansible_ssh_port=2222 ansible_ssh_host=1.2.3.5 ansible_ssh_user=root
+
+[bomsaway]
+exampleHost1
+exampleHost2
+</code></pre>
+
+<p>and use ansible to install to those hosts</p>
+
+<pre><code>make play
+</code></pre>
+
+<p>look at the included Makefile (as you should every Makefile for that matter before you <code>sudo make anything</code>)
+it merely uses the install command to copy the scripts to <code>/usr/local/bin</code> with mode 0755</p>
+
+<h2>
+<a id="website" class="anchor" href="#website" aria-hidden="true"><span class="octicon octicon-link"></span></a>website</h2>
+
+<p><a href="http://joshuacox.github.io/bomsaway">http://joshuacox.github.io/bomsaway</a></p>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-69335315-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
