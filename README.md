@@ -2,7 +2,7 @@
 
 ###### Make BOMs go away because they are ugly and ruining my jekyll site
 
-This is a utility to remove BOMs, there are other methods as well, perhaps the simplest using sed to remove all BOMs from some markdown files in a directory
+This is a utility to remove BOMs, there are other methods as well, perhaps the simplest is using sed to remove all BOMs from some markdown files in a directory
 
 ```
 sed -i '1 s/\xEF\xBB\xBF//' *.md
@@ -49,7 +49,7 @@ $ bomsaway -xr dir-to-clean ...
 
 # Install
 
-##### oneliner (it’s how I install myself so I’m leaving this up top)
+##### oneliner (it’s how I install bomsaway myself so I’m leaving this up top)
 
 ```
 curl https://raw.githubusercontent.com/joshuacox/bomsaway/master/bootstrapbomsaway.sh|bash
@@ -89,5 +89,5 @@ it merely uses the install command to copy the scripts to `/usr/local/bin` with 
 ## bomsawaywebsite 
 [joshuacox.github.io/bomsaway](http://joshuacox.github.io/bomsaway)
 
-### ohter related errata
+### other related errata
 [joshuacox.github.io](http://joshuacox.github.io/)
