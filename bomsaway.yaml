@@ -1,0 +1,4 @@
+- name: bomsaway 
+  hosts: bomsaway
+  tasks:
+  - script: bootstrapbomsaway.sh
